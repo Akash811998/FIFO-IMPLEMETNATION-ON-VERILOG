@@ -1,5 +1,5 @@
 Analysis & Synthesis report for lab3
-Sun Oct 02 02:44:07 2022
+Mon Oct 03 17:31:07 2022
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -53,7 +53,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sun Oct 02 02:44:07 2022       ;
+; Analysis & Synthesis Status     ; Successful - Mon Oct 03 17:31:07 2022       ;
 ; Quartus Prime Version           ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                   ; lab3                                        ;
 ; Top-level Entity Name           ; lab3                                        ;
@@ -201,14 +201,14 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimate of Logic utilization (ALMs needed) ; 44             ;
+; Estimate of Logic utilization (ALMs needed) ; 45             ;
 ;                                             ;                ;
-; Combinational ALUT usage for logic          ; 59             ;
+; Combinational ALUT usage for logic          ; 60             ;
 ;     -- 7 input functions                    ; 0              ;
-;     -- 6 input functions                    ; 14             ;
-;     -- 5 input functions                    ; 12             ;
+;     -- 6 input functions                    ; 15             ;
+;     -- 5 input functions                    ; 13             ;
 ;     -- 4 input functions                    ; 6              ;
-;     -- <=3 input functions                  ; 27             ;
+;     -- <=3 input functions                  ; 26             ;
 ;                                             ;                ;
 ; Dedicated logic registers                   ; 57             ;
 ;                                             ;                ;
@@ -220,8 +220,8 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
 ; Maximum fan-out                             ; 66             ;
-; Total fan-out                               ; 532            ;
-; Average fan-out                             ; 2.81           ;
+; Total fan-out                               ; 545            ;
+; Average fan-out                             ; 2.87           ;
 +---------------------------------------------+----------------+
 
 
@@ -230,11 +230,11 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------+-----------------+--------------+
 ; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                   ; Entity Name     ; Library Name ;
 +-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------+-----------------+--------------+
-; |lab3                                     ; 59 (11)             ; 57 (14)                   ; 144               ; 0          ; 32   ; 0            ; |lab3                                                                 ; lab3            ; work         ;
-;    |FF:fifo_1|                            ; 41 (41)             ; 41 (41)                   ; 144               ; 0          ; 0    ; 0            ; |lab3|FF:fifo_1                                                       ; FF              ; work         ;
+; |lab3                                     ; 60 (11)             ; 57 (14)                   ; 144               ; 0          ; 32   ; 0            ; |lab3                                                                 ; lab3            ; work         ;
+;    |FF:fifo_1|                            ; 45 (45)             ; 41 (41)                   ; 144               ; 0          ; 0    ; 0            ; |lab3|FF:fifo_1                                                       ; FF              ; work         ;
 ;       |altsyncram:stack_rtl_0|            ; 0 (0)               ; 0 (0)                     ; 144               ; 0          ; 0    ; 0            ; |lab3|FF:fifo_1|altsyncram:stack_rtl_0                                ; altsyncram      ; work         ;
 ;          |altsyncram_80n1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 144               ; 0          ; 0    ; 0            ; |lab3|FF:fifo_1|altsyncram:stack_rtl_0|altsyncram_80n1:auto_generated ; altsyncram_80n1 ; work         ;
-;    |decTo7:hexa|                          ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab3|decTo7:hexa                                                     ; decTo7          ; work         ;
+;    |decTo7:hexa|                          ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab3|decTo7:hexa                                                     ; decTo7          ; work         ;
 ;    |edge_detector:read_edge|              ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |lab3|edge_detector:read_edge                                         ; edge_detector   ; work         ;
 ;    |edge_detector:write_edge|             ; 2 (2)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |lab3|edge_detector:write_edge                                        ; edge_detector   ; work         ;
 +-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------+-----------------+--------------+
@@ -256,7 +256,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
 ; Total registers                              ; 57    ;
-; Number of registers using Synchronous Clear  ; 5     ;
+; Number of registers using Synchronous Clear  ; 14    ;
 ; Number of registers using Synchronous Load   ; 9     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
@@ -297,7 +297,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output  ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------+
 ; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |lab3|FF:fifo_1|wr_index[3] ;
-; 7:1                ; 4 bits    ; 16 LEs        ; 12 LEs               ; 4 LEs                  ; Yes        ; |lab3|FF:fifo_1|counter[1]  ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |lab3|FF:fifo_1|rd_data[2]  ;
+; 9:1                ; 4 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |lab3|FF:fifo_1|counter[3]  ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |lab3|FF:fifo_1|rd_index    ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------+
 
@@ -441,22 +442,23 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; arriav_ff             ; 57                          ;
 ;     ENA               ; 1                           ;
 ;     ENA SCLR          ; 3                           ;
-;     ENA SLD           ; 9                           ;
+;     ENA SCLR SLD      ; 9                           ;
 ;     SCLR              ; 2                           ;
 ;     plain             ; 42                          ;
-; arriav_lcell_comb     ; 63                          ;
-;     normal            ; 63                          ;
-;         1 data inputs ; 8                           ;
+; arriav_lcell_comb     ; 64                          ;
+;     normal            ; 64                          ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 7                           ;
 ;         2 data inputs ; 7                           ;
-;         3 data inputs ; 16                          ;
+;         3 data inputs ; 15                          ;
 ;         4 data inputs ; 6                           ;
-;         5 data inputs ; 12                          ;
-;         6 data inputs ; 14                          ;
+;         5 data inputs ; 13                          ;
+;         6 data inputs ; 15                          ;
 ; boundary_port         ; 32                          ;
 ; stratixv_ram_block    ; 9                           ;
 ;                       ;                             ;
 ; Max LUT depth         ; 4.00                        ;
-; Average LUT depth     ; 1.48                        ;
+; Average LUT depth     ; 1.53                        ;
 +-----------------------+-----------------------------+
 
 
@@ -475,7 +477,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Sun Oct 02 02:43:53 2022
+    Info: Processing started: Mon Oct 03 17:30:53 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lab3 -c lab3
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
@@ -483,8 +485,8 @@ Warning (12019): Can't analyze file -- file fifo.v is missing
 Info (12021): Found 4 design units, including 4 entities, in source file lab3.v
     Info (12023): Found entity 1: lab3 File: D:/akash/UTA courses/SOC/quartus examples/lab3/lab3.v Line: 1
     Info (12023): Found entity 2: FF File: D:/akash/UTA courses/SOC/quartus examples/lab3/lab3.v Line: 66
-    Info (12023): Found entity 3: edge_detector File: D:/akash/UTA courses/SOC/quartus examples/lab3/lab3.v Line: 142
-    Info (12023): Found entity 4: decTo7 File: D:/akash/UTA courses/SOC/quartus examples/lab3/lab3.v Line: 160
+    Info (12023): Found entity 3: edge_detector File: D:/akash/UTA courses/SOC/quartus examples/lab3/lab3.v Line: 144
+    Info (12023): Found entity 4: decTo7 File: D:/akash/UTA courses/SOC/quartus examples/lab3/lab3.v Line: 162
 Info (12127): Elaborating entity "lab3" for the top level hierarchy
 Critical Warning (10237): Verilog HDL warning at lab3.v(48): can't infer register for assignment in edge-triggered always construct because the clock isn't obvious. Generated combinational logic instead File: D:/akash/UTA courses/SOC/quartus examples/lab3/lab3.v Line: 48
 Critical Warning (10237): Verilog HDL warning at lab3.v(49): can't infer register for assignment in edge-triggered always construct because the clock isn't obvious. Generated combinational logic instead File: D:/akash/UTA courses/SOC/quartus examples/lab3/lab3.v Line: 49
@@ -494,7 +496,6 @@ Warning (10230): Verilog HDL assignment warning at lab3.v(57): truncated value w
 Info (12128): Elaborating entity "edge_detector" for hierarchy "edge_detector:read_edge" File: D:/akash/UTA courses/SOC/quartus examples/lab3/lab3.v Line: 43
 Info (12128): Elaborating entity "FF" for hierarchy "FF:fifo_1" File: D:/akash/UTA courses/SOC/quartus examples/lab3/lab3.v Line: 54
 Info (12128): Elaborating entity "decTo7" for hierarchy "decTo7:hexa" File: D:/akash/UTA courses/SOC/quartus examples/lab3/lab3.v Line: 62
-Info (10264): Verilog HDL Case Statement information at lab3.v(163): all case item expressions in this case statement are onehot File: D:/akash/UTA courses/SOC/quartus examples/lab3/lab3.v Line: 163
 Warning (276020): Inferred RAM node "FF:fifo_1|stack_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
 Info (19000): Inferred 1 megafunctions from design logic
     Info (276029): Inferred altsyncram megafunction from the following design logic: "FF:fifo_1|stack_rtl_0" 
@@ -533,18 +534,23 @@ Info (12133): Instantiated megafunction "FF:fifo_1|altsyncram:stack_rtl_0" with 
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_80n1.tdf
     Info (12023): Found entity 1: altsyncram_80n1 File: D:/akash/UTA courses/SOC/quartus examples/lab3/db/altsyncram_80n1.tdf Line: 28
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "HEX0[1]" is stuck at VCC File: D:/akash/UTA courses/SOC/quartus examples/lab3/lab3.v Line: 6
+    Warning (13410): Pin "HEX0[2]" is stuck at VCC File: D:/akash/UTA courses/SOC/quartus examples/lab3/lab3.v Line: 6
+    Warning (13410): Pin "HEX0[4]" is stuck at VCC File: D:/akash/UTA courses/SOC/quartus examples/lab3/lab3.v Line: 6
+    Warning (13410): Pin "HEX0[5]" is stuck at VCC File: D:/akash/UTA courses/SOC/quartus examples/lab3/lab3.v Line: 6
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 143 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 144 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 15 input pins
     Info (21059): Implemented 17 output pins
-    Info (21061): Implemented 102 logic cells
+    Info (21061): Implemented 103 logic cells
     Info (21064): Implemented 9 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 9 warnings
-    Info: Peak virtual memory: 4880 megabytes
-    Info: Processing ended: Sun Oct 02 02:44:07 2022
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 14 warnings
+    Info: Peak virtual memory: 4872 megabytes
+    Info: Processing ended: Mon Oct 03 17:31:07 2022
     Info: Elapsed time: 00:00:14
-    Info: Total CPU time (on all processors): 00:00:30
+    Info: Total CPU time (on all processors): 00:00:33
 
 

@@ -95,34 +95,35 @@ module FF	 #(parameter N=16,parameter W=9)
 		end
 		else if(clear_overflow_request && overflow)
 		begin
-			counter<=counter-2'd2;
+			if(counter==5'd17)
+				counter<=counter-2'b10;
 			overflow<=0; //clear the overflow
 		end
 		else
 		begin
 			if(wr_request)
 			begin
-				if(!full)
+				if(!full && !overflow)
 				begin
 					stack[wr_index]<= wr_data;
-					counter<=counter+1'b1;
 					wr_index<=wr_index+1'b1;
+					counter<=counter+1'b1;
 					overflow<=0;
 				end
 				else
 				begin
-					counter<=5'd17;
+					if(full)
+						counter<=5'd17;
 					overflow<=1;			
 				end
 			end
 			else if(rd_request && !empty)
 			begin
-				if(overflow)
+				if(overflow && counter==5'd17)
 				begin
 					rd_data<=stack[rd_index];
 					rd_index<=rd_index+1'b1;
 					counter<=counter-2'b10;		
-					overflow<=0;
 				end
 				else
 				begin
@@ -162,10 +163,11 @@ module decTo7(input [3:0] in, output reg [6:0] out);
 	always @ (in)
 	begin
 		case (in)
-			4'b0010: out=7'b0001000; //print A saying empty
-			4'b0100: out=7'b0000010; //print G saying Full
-			4'b0001: out=7'b1000000; //print D saying overflow
-			default: out=7'b1111111; //dont print anything if something else is given as input
+			4'b0011: out<=7'b1110110; //print A saying empty and overflow
+			4'b0010: out<=7'b1111110; //print A saying empty
+			4'b0001: out<=7'b1110111; //print D saying overflow
+			4'b0100: out<=7'b0111111; //print G saying Full			
+			default: out<=7'b1111111; //dont print anything if something else is given as input
 		endcase  
 	end	
 endmodule
